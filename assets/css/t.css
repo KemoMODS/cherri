@@ -64,7 +64,7 @@
     justify-content: center;
     gap: 8px;
     width: fit-content;
-    margin: 0 auto;
+    margin: 28px auto 0;
     padding: 10px 16px;
     border-radius: 999px;
     background: var(--bg-3);
@@ -78,12 +78,36 @@
     width: 8px;
     height: 8px;
     border-radius: 999px;
-    background: var(--accent);
-    box-shadow: 0 0 10px var(--accent);
+    background: #22c55e !important;
+    box-shadow: 0 0 10px #22c55e !important;
+}
+
+/* ===== HOME LAYOUT FIX ===== */
+
+body {
+    margin: 0;
+    overflow: hidden;
+    background: var(--bg) !important;
 }
 
 #homeContent {
+    position: fixed !important;
+    inset: 0 !important;
+    width: 100vw !important;
+    height: 100vh !important;
+
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+
     background: transparent !important;
     box-shadow: none !important;
     border: none !important;
+    z-index: 2;
+}
+
+.searchathome {
+    margin-left: 0 !important;
+    transform: none !important;
 }
