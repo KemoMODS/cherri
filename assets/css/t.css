@@ -56,28 +56,45 @@
     margin-right: 8px;
 }
 
-/* ===== ONLINE USERS PILL ONLY ===== */
+/* ===== ONLINE USERS PILL ===== */
 
 .online-pill {
     display: inline-flex;
     align-items: center;
-    justify-content: center;
     gap: 8px;
-    width: fit-content;
-    margin: 28px auto 0;
-    padding: 10px 16px;
+    padding: 10px 14px;
+    border: 1px solid color-mix(in srgb, var(--accent) 35%, transparent);
     border-radius: 999px;
-    background: var(--bg-3);
-    border: 1px solid var(--border-4);
+    background: color-mix(in srgb, var(--bg-2) 75%, transparent);
+    backdrop-filter: blur(14px);
     color: var(--bright-text);
     font-size: 14px;
-    font-weight: 500;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.18);
+    transition: 0.2s ease;
+}
+
+.online-pill:hover {
+    transform: translateY(-1px);
+    border-color: color-mix(in srgb, var(--accent) 55%, transparent);
 }
 
 .status-dot {
-    width: 8px;
-    height: 8px;
+    width: 9px;
+    height: 9px;
     border-radius: 999px;
-    background: #22c55e !important;
-    box-shadow: 0 0 10px #22c55e !important;
+    background: #22c55e;
+    box-shadow: 0 0 14px #22c55e;
+    animation: pulseOnline 1.6s infinite;
+}
+
+@keyframes pulseOnline {
+    0%, 100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+
+    50% {
+        transform: scale(1.35);
+        opacity: 0.65;
+    }
 }
