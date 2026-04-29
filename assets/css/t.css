@@ -61,30 +61,25 @@
 .online-pill {
     display: inline-flex;
     align-items: center;
+    justify-content: center;
     gap: 8px;
-    padding: 10px 14px;
-    border: 1px solid color-mix(in srgb, var(--accent) 35%, transparent);
+    width: fit-content;
+    margin: 0 auto;
+    padding: 10px 16px;
     border-radius: 999px;
-    background: color-mix(in srgb, var(--bg-2) 75%, transparent);
-    backdrop-filter: blur(14px);
+    background: var(--bg-3);
+    border: 1px solid var(--border-4);
     color: var(--bright-text);
     font-size: 14px;
-    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.18);
-    transition: 0.2s ease;
-}
-
-.online-pill:hover {
-    transform: translateY(-1px);
-    border-color: color-mix(in srgb, var(--accent) 55%, transparent);
+    font-weight: 500;
 }
 
 .status-dot {
-    width: 9px;
-    height: 9px;
+    width: 8px;
+    height: 8px;
     border-radius: 999px;
-    background: #22c55e;
-    box-shadow: 0 0 14px #22c55e;
-    animation: pulseOnline 1.6s infinite;
+    background: var(--accent);
+    box-shadow: 0 0 10px var(--accent);
 }
 
 @keyframes pulseOnline {
