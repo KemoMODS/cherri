@@ -20,7 +20,7 @@ const splashes = [
   "OI OI OI BAAAAAKA",
   "alt + f4 to end your filter trust",
   "running out of splash text",
-  "mozzie sticksssss,
+  "mozzie sticksssss",
   "lightspeed is a meanie",
   "attend the band concerts!",
   "better than art class",
