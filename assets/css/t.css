@@ -98,3 +98,32 @@
         opacity: 0.65;
     }
 }
+
+/* ===== HOME POLISH ===== */
+
+#homeContent {
+    padding: 42px 54px;
+    border-radius: 34px;
+    background: color-mix(in srgb, var(--bg) 8%, transparent 92%);
+    border: 1px solid color-mix(in srgb, var(--accent) 14%, transparent);
+    box-shadow:
+        0 24px 80px rgba(0, 0, 0, 0.22),
+        inset 0 1px 0 rgba(255, 255, 255, 0.04);
+    backdrop-filter: blur(8px);
+}
+
+#splash {
+    letter-spacing: 0.2px;
+}
+
+.searchathome {
+    box-shadow:
+        0 0 0 1px color-mix(in srgb, var(--accent) 22%, transparent),
+        0 18px 45px rgba(0, 0, 0, 0.18);
+}
+
+.online-pill {
+    box-shadow:
+        0 0 0 1px color-mix(in srgb, var(--accent) 20%, transparent),
+        0 12px 32px rgba(0, 0, 0, 0.22);
+}
