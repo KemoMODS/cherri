@@ -37,10 +37,11 @@
 .toast.success,
 .toast.error,
 .toast.info {
-    background: linear-gradient(to bottom,
-                color-mix(in srgb, var(--bg-5) 60%, transparent),
-                color-mix(in srgb, var(--bg-5) 60%, transparent));
-        ;
+    background: linear-gradient(
+        to bottom,
+        color-mix(in srgb, var(--bg-5) 60%, transparent),
+        color-mix(in srgb, var(--bg-5) 60%, transparent)
+    );
     backdrop-filter: blur(5px);
 }
 
@@ -53,4 +54,47 @@
 .toast i {
     font-size: 15px;
     margin-right: 8px;
+}
+
+/* ===== ONLINE USERS PILL ===== */
+
+.online-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 14px;
+    border: 1px solid color-mix(in srgb, var(--accent) 35%, transparent);
+    border-radius: 999px;
+    background: color-mix(in srgb, var(--bg-2) 75%, transparent);
+    backdrop-filter: blur(14px);
+    color: var(--bright-text);
+    font-size: 14px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.18);
+    transition: 0.2s ease;
+}
+
+.online-pill:hover {
+    transform: translateY(-1px);
+    border-color: color-mix(in srgb, var(--accent) 55%, transparent);
+}
+
+.status-dot {
+    width: 9px;
+    height: 9px;
+    border-radius: 999px;
+    background: #22c55e;
+    box-shadow: 0 0 14px #22c55e;
+    animation: pulseOnline 1.6s infinite;
+}
+
+@keyframes pulseOnline {
+    0%, 100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+
+    50% {
+        transform: scale(1.35);
+        opacity: 0.65;
+    }
 }
