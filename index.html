@@ -29,6 +29,7 @@
     <script src="/assets/js/lib/three.min.js"></script>
     <script src="/assets/js/lib/vanta.fog.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/eruda@3.4.3/eruda.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     <script src="/assets/js/lib/particles.js"></script>
     <script>
         // why is there a comment here you may ask? well, i don't know. i just put it here. okay now go away this code is NOT interesting twin.
@@ -1240,20 +1241,36 @@
             })
         }
 
-        async function getActiveUsers() {
-            const endpoint = "https://api.x8r.dev/api/umami"
-            const res = await fetch(endpoint)
-            const data = await res.json()
+        const SUPABASE_URL = "https://ogdpmvugpyvzjdtulkpe.supabase.co";
+const SUPABASE_KEY = "sb_publishable_k51PQb6dS_oYTSt5S3ALZg_anWpiKyH";
 
-            console.log("CURRENT VISITORS:" + data.visitors)
-            document.getElementById("user-count").textContent = data.visitors
-        }
+const supabaseClient = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
 
-        getActiveUsers()
+const userId = crypto.randomUUID();
 
-        setInterval(() => {
-            getActiveUsers()
-        }, 30000)
+const channel = supabaseClient.channel("online-users", {
+  config: {
+    presence: {
+      key: userId,
+    },
+  },
+});
+
+channel
+  .on("presence", { event: "sync" }, () => {
+    const state = channel.presenceState();
+    const count = Object.keys(state).length;
+
+    document.getElementById("user-count").textContent = count;
+    console.log("Online:", count);
+  })
+  .subscribe(async (status) => {
+    if (status === "SUBSCRIBED") {
+      await channel.track({
+        online_at: new Date().toISOString(),
+      });
+    }
+  });
 
         function setWisp(i) {
             if (!i) return
