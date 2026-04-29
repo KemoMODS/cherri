@@ -1058,8 +1058,7 @@ button.button:hover {
     transform-origin: center center;
 }
 
-#particles-container,
-#vanta-fog-container {
+#particles-container {
     position: fixed;
     inset: 0;
     z-index: 0;
@@ -1070,11 +1069,15 @@ button.button:hover {
     overflow: hidden;
 }
 
-#vanta-fog-container canvas {
+/* Used when Vanta is attached to body with el: "body" */
+.vanta-canvas {
     position: fixed !important;
     inset: 0 !important;
     width: 100vw !important;
     height: 100vh !important;
+    z-index: 0 !important;
+    opacity: 0.3 !important;
+    pointer-events: none !important;
 }
 
 .browser-loading {
