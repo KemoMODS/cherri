@@ -1061,12 +1061,20 @@ button.button:hover {
 #particles-container,
 #vanta-fog-container {
     position: fixed;
+    inset: 0;
     z-index: 0;
     opacity: 0.3;
-    left: 0;
-    top: 0;
     width: 100vw;
     height: 100vh;
+    pointer-events: none;
+    overflow: hidden;
+}
+
+#vanta-fog-container canvas {
+    position: fixed !important;
+    inset: 0 !important;
+    width: 100vw !important;
+    height: 100vh !important;
 }
 
 .browser-loading {
