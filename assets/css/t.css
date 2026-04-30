@@ -42,7 +42,7 @@
         color-mix(in srgb, var(--bg-5) 60%, transparent),
         color-mix(in srgb, var(--bg-5) 60%, transparent)
     );
-    backdrop-filter: blur(5px);
+    /* backdrop-filter: blur(5px); */
 }
 
 .toast-content {
